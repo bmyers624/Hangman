@@ -7,6 +7,10 @@ import java.util.Scanner;
  * @author Blue Macro
  */
 public class GameEngine {
+    /**
+     * While the user has less than 7 incorrect guesses and the string still contains underscores, the game will
+     * allow the user to keep making guesses.
+     */
     public static void RunGame() {
         UserName.setUserName();
         CategorySelector.pickCategory();
