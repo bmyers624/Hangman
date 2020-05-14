@@ -1,12 +1,28 @@
 package com.bluemacro.hangman;
-
 import com.bluemacro.hangman.CategorySelector;
-
+/** This class represents the logic for the actual Hangman game that involves user input,
+ *  and paints the Hangman whenever the input is incorrect.
+ * @author Brandon Myers and Brad Smialek
+ * @author Blue Macro
+ */
 public class Hangman {
-
+    /**
+     *  For every character within a string(word), an underscore is put in its place.
+     */
     protected static String emptyString =
             new String(new char[CategorySelector.word.length()]).replace("\0", "_");
+    /**
+     *  The counter starts at zero as a default when the user has not yet input a character guess.
+     */
     protected static int count = 0;
+
+    /** Checks to see if the user's input of a character matches the character at any character within the
+     *  string (word) uses a for loop to go down every character starting at 0 (the first character in the word).
+     *  If the guess is correct then the underscore is replaced with the correct character.
+     *  If not correct, the underscore stays there, the counter goes up by 1 and a body part is drawn on the hangman.
+     *  If all characters match the word, then the user wins the game.
+     * @param guess A string that contains the user's guess at what the character in the word is.
+     */
 
     public static void guessWords(String guess) {
         String newEmptyString = "";
@@ -31,6 +47,9 @@ public class Hangman {
         }
     }
 
+    /**
+     * This paints the actual hangman to the console, and displays how many times you've guessed incorrectly.
+     */
     public static void paintHangman() {
         if (count == 1) {
             System.out.println("Wrong guess, try again");
